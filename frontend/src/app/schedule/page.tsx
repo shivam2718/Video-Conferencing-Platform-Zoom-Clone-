@@ -436,7 +436,7 @@ export default function ScheduleMeeting() {
                 <div className="flex items-start mt-2 p-3 bg-yellow-50 border border-yellow-200 rounded-md">
                   <AlertTriangle className="w-4 h-4 text-yellow-600 mr-2 mt-0.5 flex-shrink-0" />
                   <div className="text-sm text-yellow-800">
-                    Participants won't receive this meeting invite until your calendar is connected.{' '}
+                    Participants won&apos;t receive this meeting invite until your calendar is connected.{' '}
                     <a href="#" className="text-blue-600 hover:text-blue-700">Connect calendar</a>
                   </div>
                 </div>

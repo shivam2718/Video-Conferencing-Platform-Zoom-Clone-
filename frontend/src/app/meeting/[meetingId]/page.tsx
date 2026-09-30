@@ -55,6 +55,7 @@ export default function MeetingRoom() {
     if (meetingId) {
       fetchMeetingDetails()
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [meetingId])
 
   const fetchMeetingDetails = async () => {
