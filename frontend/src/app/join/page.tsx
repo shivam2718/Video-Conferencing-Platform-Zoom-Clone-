@@ -32,7 +32,7 @@ export default function JoinMeeting() {
 
     try {
       // Validate meeting exists
-      const response = await fetch(`http://127.0.0.1:8001/meetings/${meetingId}`)
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://127.0.0.1:8001'}/meetings/${meetingId}`)
       if (response.ok) {
         // If we haven't asked for display name yet, ask for it
         if (!showNameInput) {

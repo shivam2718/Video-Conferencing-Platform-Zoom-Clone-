@@ -73,7 +73,7 @@ export default function ScheduleMeeting() {
 
       console.log('Request body:', requestBody)
 
-      const response = await fetch(`http://127.0.0.1:8001/meetings/schedule`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://127.0.0.1:8001'}/meetings/schedule`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(requestBody)

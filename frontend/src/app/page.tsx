@@ -58,7 +58,8 @@ export default function Dashboard() {
 
   const fetchUpcomingMeetings = async () => {
     try {
-      const url = `http://127.0.0.1:8001/meetings/upcoming`
+      const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://127.0.0.1:8001'
+      const url = `${apiUrl}/meetings/upcoming`
       console.log('Making request to:', url)
       const response = await fetch(url)
       console.log('Response status:', response.status)
@@ -80,7 +81,8 @@ export default function Dashboard() {
 
   const fetchRecentMeetings = async () => {
     try {
-      const url = `http://127.0.0.1:8001/meetings/recent`
+      const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://127.0.0.1:8001'
+      const url = `${apiUrl}/meetings/recent`
       console.log('Making request to:', url)
       const response = await fetch(url)
       console.log('Response status:', response.status)
@@ -101,7 +103,8 @@ export default function Dashboard() {
 
   const handleNewMeeting = async () => {
     try {
-      const response = await fetch(`http://127.0.0.1:8001/meetings/instant`, {
+      const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://127.0.0.1:8001'
+      const response = await fetch(`${apiUrl}/meetings/instant`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' }
       })
@@ -119,9 +122,10 @@ export default function Dashboard() {
 
   const handleJoinMeeting = async (meetingId: string, displayName: string) => {
     try {
-      const response = await fetch(`http://127.0.0.1:8001/meetings/${meetingId}`)
+      const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://127.0.0.1:8001'
+      const response = await fetch(`${apiUrl}/meetings/${meetingId}`)
       if (response.ok) {
-        const joinResponse = await fetch(`http://127.0.0.1:8001/meetings/${meetingId}/join`, {
+        const joinResponse = await fetch(`${apiUrl}/meetings/${meetingId}/join`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ display_name: displayName })
