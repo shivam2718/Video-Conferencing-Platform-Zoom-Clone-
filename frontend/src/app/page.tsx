@@ -75,7 +75,7 @@ export default function Dashboard() {
       }
     } catch (error) {
       console.error('Failed to fetch upcoming meetings:', error)
-      console.error('Error details:', error.name, error.message)
+      console.error('Error details:', error instanceof Error ? error.name : 'unknown', error instanceof Error ? error.message : String(error))
     }
   }
 
@@ -97,7 +97,7 @@ export default function Dashboard() {
       }
     } catch (error) {
       console.error('Failed to fetch recent meetings:', error)
-      console.error('Error details:', error.name, error.message)
+      console.error('Error details:', error instanceof Error ? error.name : 'unknown', error instanceof Error ? error.message : String(error))
     }
   }
 
